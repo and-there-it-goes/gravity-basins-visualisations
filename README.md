@@ -1,3 +1,7 @@
 # Gravity Basins visualisations
 
 Visualisations for gravity basin patterns (patterns formed by plotting the final point of a particle spawned into a space containing 3 zero-size gravitational bodies with a small amount of drag), inspired by [2swap](https://github.com/2swap)'s video, [༄ GRAVITY BASINS ࿐](https://www.youtube.com/watch?v=LavXSS5Xtbg).
+
+This is made in Godot Engine 4.5 (4.5.1) on Windows. It requires a decent GPU, or you can decrease the resolution. The GDScript is kinda messy because I wasn't bothered to make it good, because it's more of a shader-based program. If you want to edit the program, you may (or may not) require a decent knowledge about Godot, including GDScript and Godot's shader language.
+
+You can left click and drag the points around and see the graph change in real-time. Right-click to spawn a single particle. Press <kbd>tab</kbd> to toggle the plot visibility (improves frame rate if not visible). Press <kbd>Q</kbd> to change the plot type. The plot types' formulae are computed in [gravity.gdshader:91](./gravity.gdshader#L91) and documented in [formulae.md](formulae.md). I'm not the best at maths terms and stuff, so please don't blame me if I misuse terms or symbols.
