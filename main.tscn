@@ -147,6 +147,7 @@ process_material = SubResource("ShaderMaterial_272bh")
 script = ExtResource("4_272bh")
 
 [node name="BlurRect" type="TextureRect" parent="GravityTexture"]
+visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_lquwl")
 layout_mode = 1
@@ -160,6 +161,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_272bh")
 
 [node name="InfoLabel" type="Label" parent="GravityTexture"]
+visible = false
 z_index = 2
 texture_filter = 1
 layout_mode = 1
@@ -203,4 +205,5 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Marker" type="Marker2D" parent="GravityTexture"]
+visible = false
 position = Vector2(611, 527)
