@@ -1,0 +1,206 @@
+[gd_scene load_steps=22 format=3 uid="uid://c8wrptodh40cg"]
+
+[ext_resource type="Shader" uid="uid://bo8y1jib7mrsm" path="res://gravity.gdshader" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://hwwndxlymjqf" path="res://gravity_texture.gd" id="2_h2yge"]
+[ext_resource type="FontFile" uid="uid://cn00njxtpqxe6" path="res://cmunorm.ttf" id="3_h2yge"]
+[ext_resource type="Shader" uid="uid://cdcmquv57otja" path="res://blur_right_side.gdshader" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://d3a3i3jjv0btd" path="res://particles_inherit_shader_props.gd" id="4_272bh"]
+[ext_resource type="Shader" uid="uid://ddkiw4sgo8gva" path="res://gravity_particles.gdshader" id="6_7mycd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("1_ig7tw")
+shader_parameter/visibility_factor = 0.0
+shader_parameter/color1 = Vector3(0.96484375, 0.94140625, 0.4140625)
+shader_parameter/color2 = Vector3(0, 0.7734375, 0.6328125)
+shader_parameter/color3 = Vector3(0, 0.45703125, 0.99609375)
+shader_parameter/visualisation_type0 = 0
+shader_parameter/visualisation_type1 = 0
+shader_parameter/visualisation_mix = 0.0
+shader_parameter/body1 = Vector2(557, 139)
+shader_parameter/body2 = Vector2(271, 414)
+shader_parameter/body3 = Vector2(848, 460)
+shader_parameter/init_v = Vector2(0, 0)
+shader_parameter/d = 0.001
+shader_parameter/t = 0.0005
+shader_parameter/steps = 4000
+shader_parameter/epsilon = 1e-05
+shader_parameter/rmul = 5e-05
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2yge"]
+
+[sub_resource type="Gradient" id="Gradient_h2yge"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1bvp3"]
+gradient = SubResource("Gradient_h2yge")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_1bvp3"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lquwl"]
+gradient = SubResource("Gradient_1bvp3")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7mycd"]
+gradient = SubResource("Gradient_lquwl")
+width = 24
+height = 24
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_272bh"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5vw27"]
+gradient = SubResource("Gradient_272bh")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+shader = ExtResource("6_7mycd")
+shader_parameter/tmul = 0.4
+shader_parameter/body1 = Vector2(557, 139)
+shader_parameter/body2 = Vector2(271, 414)
+shader_parameter/body3 = Vector2(848, 460)
+shader_parameter/init_v = Vector2(0, 0)
+shader_parameter/epsilon = 0.0
+shader_parameter/rmul = 0.0
+shader_parameter/d = 0.0
+shader_parameter/t = 0.0
+shader_parameter/tSquared = 0.0
+shader_parameter/start_pos = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+shader = ExtResource("4_1bvp3")
+
+[sub_resource type="Gradient" id="Gradient_7mycd"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_272bh"]
+gradient = SubResource("Gradient_7mycd")
+width = 2
+height = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2yge"]
+line_spacing = -2.0
+font = ExtResource("3_h2yge")
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 0.5019608)
+
+[node name="Main" type="Node2D"]
+
+[node name="GravityTexture" type="TextureRect" parent="."]
+top_level = true
+material = SubResource("ShaderMaterial_0xm2m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_h2yge")
+script = ExtResource("2_h2yge")
+
+[node name="Body1" type="Sprite2D" parent="GravityTexture" groups=["draggable"]]
+position = Vector2(557, 139)
+texture = SubResource("GradientTexture2D_1bvp3")
+
+[node name="Body2" type="Sprite2D" parent="GravityTexture" groups=["draggable"]]
+position = Vector2(271, 414)
+texture = SubResource("GradientTexture2D_lquwl")
+
+[node name="Body3" type="Sprite2D" parent="GravityTexture" groups=["draggable"]]
+position = Vector2(848, 460)
+texture = SubResource("GradientTexture2D_7mycd")
+
+[node name="Particles" type="GPUParticles2D" parent="GravityTexture"]
+emitting = false
+amount = 256
+texture = SubResource("GradientTexture2D_5vw27")
+lifetime = 30.0
+visibility_rect = Rect2(0, 0, 1360, 720)
+process_material = SubResource("ShaderMaterial_272bh")
+script = ExtResource("4_272bh")
+
+[node name="BlurRect" type="TextureRect" parent="GravityTexture"]
+z_index = 1
+material = SubResource("ShaderMaterial_lquwl")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_272bh")
+
+[node name="InfoLabel" type="Label" parent="GravityTexture"]
+z_index = 2
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_h2yge")
+horizontal_alignment = 2
+
+[node name="Overlay" type="Control" parent="GravityTexture"]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BG" type="ColorRect" parent="GravityTexture/Overlay"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3764706)
+
+[node name="InformationLabel" type="Label" parent="GravityTexture/Overlay"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Marker" type="Marker2D" parent="GravityTexture"]
+position = Vector2(611, 527)
